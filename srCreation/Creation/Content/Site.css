@@ -1,0 +1,167 @@
+﻿
+body {
+    font-family: Calibri !important;
+    font-size: 14px !important;
+    width: 900px;
+    height: auto;
+    margin: 0 auto !important;
+    padding: 20px;
+    background-color: #fff !important;
+    color: #000 !important;
+}
+li
+{
+    list-style:none;
+}
+.siteBgndColor {
+}
+
+.fontForce {
+    font-family: Calibri !important;
+}
+
+table {
+    font-size: 14px !important;
+}
+
+#tHome {
+    padding: 0 20px;
+    border-collapse: collapse;
+}
+
+#dUser {
+    width: 200px;
+    height: auto;
+    margin-top: 0 auto !important;
+}
+
+#dLogo {
+    height: auto;
+}
+
+.userImage {
+    width: 30px;
+    height: 30px;
+}
+
+.ChatEach {
+    border: 1px solid none;
+    padding: 4px;
+    border-radius: 3px;
+    margin: 5px 0px;
+    clear: both;
+}
+
+    .ChatEach span {
+        display: block;
+    }
+
+.ChatMsg {
+    border: 1px solid orange;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+#dOffEach {
+    border: .8px solid grey;
+    border-radius: 3px;
+}
+
+.SizeHalf {
+    font-size: 0.7em;
+}
+
+.padding-left {
+    padding-left: 5px;
+}
+
+.padding-right {
+    padding-right: 5px;
+}
+
+.padding-top {
+    padding-top: 5px;
+}
+
+.padding-bottom {
+    padding-bottom: 5px;
+}
+
+.dCmntEach {
+    border: .8px solid red;
+    border-radius: 1px;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.fa-site {
+    color: orange;
+    background-color: white;
+}
+
+.fa-chat {
+    color: orange;
+    background-color: green;
+}
+
+#uMenu li {
+    display: inline;
+    list-style: none;
+    padding-right: 20px;
+}
+
+#uAllServices {
+    padding: 20px 50px;
+}
+
+    #uAllServices li {
+        display: inline;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+#dChatActive {
+    border: 1px solid #E5C9E6;
+    height: 400px;
+    width: 300px;
+    border-radius: 3px;
+    overflow-y: auto;
+}
+
+.textPadding {
+    padding: 4px;
+}
+
+.btnChat {
+    border: 1px solid #F5D0A9;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 27px;
+    width: 60px;
+}
+
+#tNanoGen {
+    border: 1px solid none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+    #tNanoGen td:first-child {
+        padding: 4px;
+        width: 70px;
+        text-align: right;
+    }
+
+.bigBox {
+    width: 300px;
+}
+.error
+{
+    color:red;
+    border:1px solid red;
+    padding:4px;
+    border-radius:3px;
+}

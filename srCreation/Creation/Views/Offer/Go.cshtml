@@ -1,0 +1,55 @@
+﻿@using srEntity
+@model OfferModel
+@{
+    Creation.Controllers._Controller cbase = ViewContext.Controller as Creation.Controllers._Controller;
+}
+<fieldset>
+    @if (cbase.IsAdmin())
+    {
+        @Html.ActionLink("Create New Offer", "Create", "Offer", null, new { @class = "pull-right padding-right" })
+        <div style="height:10px;clear:both;"></div>
+    }
+    <div id="dOfferListing">
+        <ul>
+            @if (Model.AllOffers != null && Model.AllOffers.Count() > 0)
+            {
+                foreach (Offer off in Model.AllOffers)
+                {
+                    <li>
+                        <span class="pull-right SizeHalf">@off.CatName</span>
+                        <div class="dOffEach">
+                            @off.Title
+                            <hr />
+                            <p>
+                                @if (off.Descn.Length > 100)
+                                {
+                                    @off.Descn.Substring(0, 100)
+                                    <span>......</span>
+                                }
+                                else
+                                {
+                                    @off.Descn
+                                }
+                            </p>
+                            <span id="sToggle" data-tog="0" data-show="Less" data-hide="More" class="pull-right SizeHalf btn">More</span>
+                            <span>
+                                Likes: @off.Likes <span class="padding-left" />
+                                DisLikes: @off.DisLikes
+                            </span>
+                        </div>
+                        <span class="pull-left SizeHalf">@off.ModOn</span>
+                        <span class="pull-right SizeHalf">@off.ModBy</span>
+                    </li>
+                }
+                if (Model.AllOffers.Count() == 1)
+                {
+                    @Html.Partial("_Cmnts", Model.AllOffers.First().Cmnts)
+                }
+            }
+            else
+            {
+                <li>Sorry! No offer found!</li>
+            }
+        </ul>
+    </div>
+</fieldset>

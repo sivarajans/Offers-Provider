@@ -1,0 +1,34 @@
+﻿@using srEntity;
+@model IEnumerable<_Model.Category>
+@section scripts
+{
+    <script type="text/javascript">
+        var pad = 1;
+        $(document).ready(function () {
+            LoadCateg();
+        });
+        function LoadCateg() {
+            $('#uCateg li [data-loaded="false"]').each(function (i, el) {
+                var res = Ajx('', 'GET', $(el).attr('id'));
+                $(this).attr('data-loaded', 'true');
+                // Appends ul li items here.
+                $(this).find('ul').remove();
+                $(this).append(res);
+                $(this).find('ul').css('padding-left', pad * 10 + 'px');
+            });
+            pad += 1;
+            if ($('#uCateg li [data-loaded="false"]').length >= 0)
+                LoadCateg();
+        }
+    </script>
+}
+<fieldset>
+    <ul id="uCateg">
+        @foreach (_Model.Category cat in Model)
+        {
+            <li id="@cat.Id" data-loaded="false" data-pid="@cat.ParentId">
+                @cat.Categ
+            </li>
+        }
+    </ul>
+</fieldset>

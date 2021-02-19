@@ -1,0 +1,32 @@
+﻿@using srEntity;
+@model IEnumerable<_Model.GbChat>
+@{
+    Creation.Controllers._Controller _con = ViewContext.Controller as Creation.Controllers._Controller;
+}
+@foreach (_Model.GbChat chat in Model)
+{
+    string align = _con.IsCurrentUser(chat.Id) ? "pull-right" : "pull-left";
+    string time = string.Empty;
+    if (chat.CtdOn.Date == DateTime.Now.Date)
+    {
+        time = "Today at " + chat.CtdOn.ToString("hh:mm:ss tt");
+    }
+    else if (chat.CtdOn.Date == DateTime.Now.AddDays(-1).Date)
+    {
+        time = "Yesterday at " + chat.CtdOn.ToString("hh:mm:ss tt");
+    }
+    else
+    {
+        time = chat.CtdOn.ToString("yyyy/MM/dd hh:mm:ss tt");
+    }
+    <div class="@align ChatEach" data-lmid="@chat.Id">
+        <span class="small @align" style="clear:both">
+            @chat.CtdBy said:
+        </span>
+        <span class="ChatMsg" style="clear:both">
+            @chat.Msg
+        </span>
+        <span class="small">@time</span>
+    </div>
+}
+

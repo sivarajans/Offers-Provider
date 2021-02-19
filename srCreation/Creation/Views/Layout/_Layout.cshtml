@@ -1,0 +1,94 @@
+﻿@using srShared;
+@using srEntity;
+@model _Model
+@Styles.Render("~/css")
+@Scripts.Render("~/jq")
+@Scripts.Render("~/home")
+@Scripts.Render("~/bundles/jqueryval")
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model._PageTitle</title>
+    <script type="text/javascript">
+        var urlExecChat = '@Url.Action("ExecChat","Home")';
+        var urlGetChat = '@Url.Action("GetChat","Home")';
+    </script>
+</head>
+<body>
+    @RenderSection("scripts", required: false)
+    <table class="tHome">
+        <tr>
+            <td valign="top" style="width:150px;">
+                <div id="dLogo">
+                    @Html.Partial("_Logo")
+                </div>
+
+                <div id="dCateg">
+                    @if (Model._Categories != null)
+                    {
+                        @Html.Partial("_Categ", Model._Categories)
+                    }
+                </div>
+                <div id="dAd1">
+                    @if (Model._GoogAds != null && Model._GoogAds.Count() > 0)
+                    {
+                        @Html.Raw(Model._GoogAds.ToArray()[0].Code)
+                    }
+                </div>
+            </td>
+            <td valign="top" style="width:600px;">
+                <div id="dMenu">
+                    <ul id="uMenu">
+                        <li><a href="#"> About Us </a></li>
+                        <li><a href="#"> Contact Us </a></li>
+                    </ul>
+                </div>
+                <hr/>
+                <div id="dContents" style="text-align:center;">
+                    <div id="errShow" style="padding:3px;">
+                    </div>
+                    <div style="height:10px;"></div>
+                    @RenderBody()
+                </div>
+                <div id="dAd1">
+                    @if (Model._GoogAds != null && Model._GoogAds.Count() > 1)
+                    {
+                        @Html.Raw(Model._GoogAds.ToArray()[1].Code)
+                    }
+                </div>
+            </td>
+            <td valign="top" style="width:250px;">
+                @*<div id="dUser">
+                @if (Model._User != null)
+                {
+                    @Html.Partial("_User", Model._User)
+                }
+            </div>*@
+                <div id="dGChat">
+                    @if (Model._Chats != null)
+                    {
+                        <fieldset>
+                            <h5>Global Chat</h5>
+                            <div id="dChatActive">
+                                @Html.Partial("_GbChat", Model._Chats)
+                            </div>
+                            <div class="padding-top">
+                                <input type="text" value="" id="txtChat" class="pull-left padding-left textPadding " style="border-radius: 3px; border: 1px solid #E5C9E6; width: 230px; " />
+                                <div class="pull-right btnChat" id="execChat"><span class="fa fa-comment fa-site" />Chat</div>
+                            </div>
+                        </fieldset>
+                    }
+                </div>
+                <div id="dAd3">
+                    @if (Model._GoogAds != null && Model._GoogAds.Count() > 2)
+                    {
+                        @Html.Raw(Model._GoogAds.ToArray()[2].Code)
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

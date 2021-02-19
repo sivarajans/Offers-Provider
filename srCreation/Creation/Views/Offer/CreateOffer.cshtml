@@ -1,0 +1,27 @@
+﻿@model srEntity.OfferModel
+
+<h5>Create Offer</h5>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <table>
+            <tr>
+                <td>
+                    Category
+                </td>
+                <td>
+                    @Html.DropDownList("")
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Go")
+</div>

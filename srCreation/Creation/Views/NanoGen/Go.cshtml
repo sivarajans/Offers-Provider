@@ -1,0 +1,48 @@
+﻿@model srEntity.NanoModel
+@section scripts
+    {
+    <script type="text/javascript" language="javascript">
+        $(document).on('click', '#execNanoGen', function () {
+            var urlEntered = $('#BigUrl').val();
+            if (urlEntered.split('.').length > 1)
+                return true;
+            else {
+                SetErr('Please provide valid URL to convert.');
+                return false;
+            }
+        });
+    </script>
+}
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <table id="tNanoGen" style="width:100%">
+            <tr>
+                <td>
+                    Large URL
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.BigUrl, new { placeholder = "Enter large url here.", @class = "textPadding bigBox", name = "txtBigUrl" })
+                </td>
+            </tr>
+            @if (Model.IsNanoAvail)
+            {
+                <tr>
+                    <td>
+                        Nano Url
+                    </td>
+                    <td>
+                        <a id="sNanoGenerated" href="@Model.NanoUrl">
+                            @Model.NanoUrl
+                        </a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="submit" formaction="@Url.Action("GenerateNano","NanoGen")" id="execNanoGen" class="btn btn-primary" value="Generate Nano" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}

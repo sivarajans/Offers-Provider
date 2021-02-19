@@ -1,0 +1,32 @@
+﻿@using srEntity;
+@model ServicesModel
+<fieldset class="text-center">
+    <ul id="uAllServices">
+        What We Offer!
+        <hr />
+        @foreach (Service service in Model.AllServices)
+        {
+
+            <li data-link="@Url.RouteUrl(service.RouteName)" class="text-center">
+                @*<img src="@srShared.Aio.ReturnImg(service.Img)" alt="@service.Name" style="text-align:center;width:200px;height:100px;" />*@
+                @if (service.Id == 1)
+                {
+                    <span style="clear:both;display:block" class="fa fa-link fa-4x fa-site"></span>
+
+                }
+                else if (service.Id == 2)
+                {
+                    <span style="clear:both;display:block" class="fa fa-bolt fa-4x fa-site"></span>
+                }
+                <h4 class="text-center">
+                    @service.Name
+                </h4>
+                <p>
+                    @service.Descn
+                </p>
+                <hr />
+            </li>
+
+        }
+    </ul>
+</fieldset>

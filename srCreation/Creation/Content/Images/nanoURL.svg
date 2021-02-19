@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns='http://www.w3.org/2000/svg'>
+ <g style='stroke:orange;stroke-width:1px;fill:none;'>
+	<path d='M10 10C5 90 60 90 70 65l10 10 8 -6 5 4 5 -2h20l-5 -5 10 5 -15 10' id='route'/>
+	<path d='M20 10C15 80 60 90 65 40 65 20 95 40 75 55l18 8a10 10 0 0 0 4 -12'/>
+ </g>
+</svg>

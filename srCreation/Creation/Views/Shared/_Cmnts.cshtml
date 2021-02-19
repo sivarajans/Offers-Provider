@@ -1,0 +1,17 @@
+﻿@using srEntity
+@model IEnumerable<Comment>
+<fieldset>
+    <div id="dCmnts">
+        @foreach (Comment cmt in Model)
+        {
+            <span class="pull-left SizeHalf">@cmt.CtdOn</span>
+            <span class="pull-right SizeHalf">@cmt.CtdOn</span>
+            <div class="dCmntEach">
+                <p>
+                    @cmt.Cmnt
+                </p>
+            </div>
+        }
+    </div>
+</fieldset>
+
